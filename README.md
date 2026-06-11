@@ -172,6 +172,8 @@ All figures are automatically formatted using customized LaTeX typography.
 
 If you want to tweak parameters (such as testing different element counts, shifting carrier frequencies, or setting heavier noise figures), simply adjust the values inside `config.py` and run `main.py` again. Welcome to the team! Feel free to raise any architectural questions as you begin exploring the code.
 
+<br>
+
 *Created in June 2026*
 
 *@author: Pavan Mohan Neelamraju*
