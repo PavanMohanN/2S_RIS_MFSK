@@ -176,7 +176,7 @@ If you want to tweak parameters (such as testing different element counts, shift
 
 *Created in June 2026*
 
-*@author: Pavan Mohan Neelamraju*
+*@uthor: Pavan Mohan Neelamraju*
 
 *Affiliation: Loughborough University*
 
