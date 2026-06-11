@@ -1,6 +1,5 @@
 <img width="1918" height="1077" alt="image" src="https://github.com/user-attachments/assets/14c4fc7a-235e-4a3c-921c-4450524210c0" />
 
-
 # Multi-Tone FSK (M-FSK) Reconfigurable Intelligent Surface (RIS) Radar Sensing Suite
 
 Welcome to the **RIS M-FSK Sensing Simulation Suite** repository. This project provides a mathematically rigorous, self-contained **Monte Carlo numerical physics simulator** designed to model an advanced **28 GHz two-stage Reconfigurable Intelligent Surface (RIS)** bistatic radar framework.
@@ -15,13 +14,21 @@ This suite simulates a closed-loop, physical radar sensing chain that leverages 
 
 ### The Problem with Conventional Single-Stage RIS
 
-In classic Space-Time-Modulated RIS (STM-RIS) systems, a single panel must handle both beamforming (pointing a narrow beam at a target) and fast waveform modulation (switching phases to create distinct radar tones). This creates a severe hardware bottleneck: sending high-speed phase updates from a baseband processor to hundreds of array elements over serial interfaces like SPI chokes the system speed, limiting the radar symbol rate to roughly **$13\text{ kHz}$**.
+In classic Space-Time-Modulated RIS (STM-RIS) systems, a single panel must handle both beamforming (pointing a narrow beam at a target) and fast waveform modulation (switching phases to create distinct radar tones). This creates a severe hardware bottleneck: sending high-speed phase updates from a baseband processor to hundreds of array elements over serial interfaces like SPI chokes the system speed, limiting the radar symbol rate to roughly **13 kHz**.
 
 ### Our Solution: The Two-Stage Decoupled System
 
 This repository simulates a system that splits these functions across two separate layers spaced an evanescent wave's distance apart:
 
-1. **Transmitter-RIS (T-RIS):** Dedicated exclusively to high-speed waveform modulation. Instead of serial control, it uses a fast, localized Direct Digital Synthesis (DDS) internal clock boundary to step through reflection configurations at an accelerated symbol rate of **$714.3\text{ kHz}$** (a **$55\times$ speedup** over the serial baseline).
+```
+  [ Continuous-Wave Transmitter ] ── (8m) ──> [ T-RIS Layer ]
+                                                    │  (2mm Near-Field Gap)
+                                                    ▼
+  [ Isotropic Rx Array ] <── (8m) ── [ R-RIS Layer ] <── (10m) ── [ Target ]
+
+```
+
+1. **Transmitter-RIS (T-RIS):** Dedicated exclusively to high-speed waveform modulation. Instead of serial control, it uses a fast, localized Direct Digital Synthesis (DDS) internal clock boundary to step through reflection configurations at an accelerated symbol rate of **714.3 kHz** (a **55× speedup** over the serial baseline).
 2. **Receiver-RIS (R-RIS):** Dedicated exclusively to spatial beamforming and target tracking. Because target positions change slowly relative to a radar pulse, this stage only updates its narrow beam commands once per Coherent Processing Interval (CPI), completely freeing it from high-speed switching requirements.
 
 ### The Radar Waveform: M-FSK vs. FMCW
@@ -39,8 +46,8 @@ The simulator is highly structured and modular. Each file represents a dedicated
 
 ### Infrastructure & Orchestration
 
-* **`config.py`** * **What it does:** The single source of truth for all physical, mechanical, geometric, and graphical parameters.
-* **Core Parameters:** Holds physical constants ($c, k_B, T_0$), the $28\text{ GHz}$ carrier parameters, PIN diode equivalent circuits ($R_s = 2.0\ \Omega, C_J = 25\text{ fF}$), array dimensions ($16 \times 16 = 256$ elements), the 12-tone signal boundaries, target trajectories, and publication-ready plotting color definitions.
+* **`config.py`**
+* **What it does:** The single source of truth for all physical, mechanical, geometric, and graphical parameters. Holds physical constants, carrier parameters, PIN diode equivalent circuits, array dimensions, signal boundaries, target trajectories, and plotting style definitions.
 
 
 * **`main.py`**
@@ -51,38 +58,38 @@ The simulator is highly structured and modular. Each file represents a dedicated
 ### Physics & Signal Processing Modules
 
 * **`ris_waveform.py`**
-* **What it does:** Simulates the time-domain multi-tone baseband signal steps driven by DDS phase-profile switching. It maps the discrete, symmetrical desired upper sidebands and mirror lower image sidebands, and evaluates frequency-dependent spatial beam squint to confirm that angular deflection properties stay well within the array's main beamwidth.
+* **What it does:** Simulates the time-domain multi-tone baseband signal steps driven by DDS phase-profile switching. It maps desired upper sidebands and mirror lower image sidebands, and evaluates frequency-dependent spatial beam squint.
 
 
 * **`bistatic_radar.py`**
-* **What it does:** Executes the complete 4-hop physical link budget matrix ($\text{Tx} \rightarrow \text{T-RIS} \rightarrow \text{Target} \rightarrow \text{R-RIS} \rightarrow \text{Rx}$) evaluating free-space path loss and coherent aperture captures. It synthesizes raw complex beat-signal data arrays injected with Gaussian noise, then processes them through automated Inverse Fast Fourier Transforms (IFFT) and 2D Fourier shift maps to output 1D range peaks and 2D Range-Doppler spectrum records.
+* **What it does:** Executes the complete 4-hop physical link budget matrix ($\text{Tx} \rightarrow \text{T-RIS} \rightarrow \text{Target} \rightarrow \text{R-RIS} \rightarrow \text{Rx}$) evaluating path loss and aperture captures. Synthesizes raw complex beat-signal data arrays injected with noise, processing them through IFFT and 2D Fourier shift maps to output 1D range peaks and 2D Range-Doppler spectrum records.
 
 
 * **`estimation_crb.py`**
-* **What it does:** Derives the analytical Cramér-Rao Bounds (CRB) for range, radial velocity, and 2D position by constructing the Fisher Information Matrix (FIM) from signal partial derivatives. It runs a massive statistical loop over an SNR sweep range of $-30\text{ dB}$ to $+20\text{ dB}$ to validate the numerical root-mean-square error (RMSE) efficiency of our Fourier estimators.
+* **What it does:** Derives the analytical Cramér-Rao Bounds (CRB) for range, radial velocity, and 2D position by constructing the Fisher Information Matrix (FIM) from signal partial derivatives. Runs a statistical loop over an SNR sweep to validate the numerical root-mean-square error (RMSE) efficiency of our Fourier estimators.
 
 
 * **`tracking.py`**
-* **What it does:** Models a dynamic closed-loop beam tracking environment over 50 tracking frames. It propagates a constant-velocity target across a 2D grid, calculates immediate mispointing power losses via a Dirichlet array-factor kernel, dynamically inflates measurement noise variances based on the resulting real-time SNR drops, and implements a predictive alpha-smoother loop to continuously steer the R-RIS array back toward the target.
+* **What it does:** Models a dynamic closed-loop beam tracking environment over 50 tracking frames. Propagates a constant-velocity target, calculates immediate mispointing power losses via a Dirichlet array-factor kernel, dynamically inflates noise variances, and implements an alpha-smoother loop to continuously steer the array.
 
 
 
 ### System Evaluation & Verification
 
 * **`multi_target.py`**
-* **What it does:** Populates a complex radar scene containing three distinct co-located targets (Target 1: Static clutter, Target 2: Receding target at $+3\text{ m/s}$, Target 3: Approaching target at $-2\text{ m/s}$). It explicitly visualizes how the M-FSK processing chain separates these profiles cleanly, contrasting it against a single-chirp FMCW radar framework that exhibits severe peak displacements.
+* **What it does:** Populates a complex radar scene containing three distinct co-located targets. It visualizes how the M-FSK processing chain separates these profiles cleanly, contrasting it against a single-chirp FMCW radar framework that exhibits severe peak displacements.
 
 
 * **`benchmarking.py`**
-* **What it does:** Performs architectural system benchmarking across four distinct radar topologies. It evaluates component-level hardware electricity draw equations (PA power configurations, element DC bias loops, and DDS switching dynamics) and outputs multi-axis normalized performance scores.
+* **What it does:** Performs architectural system benchmarking across four distinct radar topologies. It evaluates component-level hardware power consumption draw equations and outputs multi-axis normalized performance scores.
 
 
 * **`robustness.py`**
-* **What it does:** Sweeps various physical hardware imperfections to establish a robust manufacturing error budget. It models random element-level reflection amplitude errors, phase-shifter tracking variances, sub-millimeter evanescent gap misalignments, and finite phase-quantization bit boundaries ($1$ to $6$ bits) to plot exact systemic signal degradation gradients.
+* **What it does:** Sweeps various physical hardware imperfections to establish a robust manufacturing error budget, modeling amplitude errors, phase tracking variances, air gap misalignments, and phase-quantization bounds.
 
 
 * **`figures_tables.py`**
-* **What it does:** Automated packaging block. It cross-checks that all expected `.pdf` graphics and `.tex` structural math tables are present across localized outputs, compiles them into structured LaTeX mapping arrays, merges binary raw data arrays into a centralized database file (`data/all_results.npy`), and auto-generates a comprehensive summary markdown asset.
+* **What it does:** Automated packaging block. Cross-checks that all expected figures and structural LaTeX tables are present, compiles them into structured LaTeX mapping arrays, merges data into a centralized database file, and auto-generates a summary markdown report.
 
 
 
@@ -143,31 +150,25 @@ python ris_mfsk_tracking_demo.py
 
 ---
 
-## 5. Directory Mapping and Output Architecture
+## 5. Repository Directory Tree Layout
 
-When you run the simulation framework, the pipeline automatically writes and balances data across the following file structure:
-
-```
-├── data/                       # Central repository for binary arrays
-│   ├── pin_diode_data.npy      # Phase and amplitude curves
-│   ├── bistatic_radar_data.npy # Multi-tone raw matrix and spectral reflections
-│   ├── tracking_data.npy       # Dynamic trajectory and state tracking histories
-│   └── all_results.npy         # Centralized pipeline evaluation database
-│
-├── figures/                    # Production-ready vector graphics (PDF/PNG formats)
-│   ├── F7_mfsk_spectrum.pdf    # Desired upper sideband vs. image sidebands
-│   ├── F11_range_doppler.pdf   # 1D range peaks and 2D Doppler shifts
-│   ├── F14_tracking_trajectory.pdf # Closed-loop target path tracking visualizer
-│   └── F16_multitarget_vs_fmcw.pdf # True peak isolation vs. FMCW ghost targets
-│
-└── tables/                     # Transcompiled math tables (TeX/CSV formats)
-    ├── T1_system_params.tex    # Physical node positioning parameters
-    ├── T3_tracking_params.tex  # RMSE and statistical tracking tracking deltas
-    └── T8_power_budget.tex     # Component-level engineering power consumption budget
+```text
+.
+├── main.py                     # Central master runner orchestrating all phases
+├── config.py                   # Global physical, structural, and graphic constants
+├── ris_waveform.py             # Phase 2: DDS tone stepping and spectral lines
+├── bistatic_radar.py           # Phase 3: 4-hop physical link budget & Fourier parsing
+├── estimation_crb.py           # Phase 4: Fisher Information Matrix & CRB loops
+├── tracking.py                 # Phase 5: Dynamic constant-velocity alpha-tracking
+├── multi_target.py             # Phase 6a: Multi-target scene & FMCW ghost comparison
+├── benchmarking.py             # Phase 6b: Topology electricity draw & metrics grading
+├── robustness.py               # Phase 7: Hardware tolerance & evanescent decay sweeps
+├── figures_tables.py           # Phase 8a: Output validation and artifact collation
+└── ris_mfsk_tracking_demo.py   # Live animated desktop beam-steering dashboard
 
 ```
 
-All figures are automatically formatted using customized LaTeX typography sizing boundaries to ensure they render precisely within academic manuscript frameworks.
+All figures are automatically formatted using customized LaTeX typography.
 
 If you want to tweak parameters (such as testing different element counts, shifting carrier frequencies, or setting heavier noise figures), simply adjust the values inside `config.py` and run `main.py` again. Welcome to the team! Feel free to raise any architectural questions as you begin exploring the code.
 
