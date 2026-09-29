@@ -1,0 +1,22 @@
+\begin{table*}[!t]
+\centering
+\caption{Two-Stage Versus Single-Stage Architectures for Steered M-FSK Generation}
+\label{tab:arch_comparison}
+\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\hline\hline
+ & Two-stage T-RIS/R-RIS & Single stage, per-symbol reload & Single stage, FPGA/LUT or global line \\
+\hline
+Control writes per symbol & one DDS word & $NB$ bits (SPI) & pointer (LUT) \\
+Symbol rate & 714 kHz$^\dagger$ & 13.0 kHz & 2.1 MHz$^\ddagger$ \\
+Elements switched at $f_m$ & $N$ (T-RIS only) & $N$ (all) & $N$ (all) \\
+Distinct modulation drives & 1 (common) & $N$ & $N$ or 1 global line \\
+Drive timing resolution & none & 0.42 ns & 0.42 ns / none \\
+Beamformer technology & any (static per CPI) & fast switching & fast switching \\
+Beamformer update & 45 kbit/s & per symbol & per symbol / per CPI \\
+Inter-stage coupling loss & $C_0^2$ (Sec.~\ref{sec:5b}) & none & none \\
+Carrier feedthrough & $|T_{\rm mean}|$ & suppressible & suppressed (0/$\pi$) \\
+\hline\hline
+\multicolumn{4}{@{}p{0.98\textwidth}@{}}{\scriptsize $N=256$, $B=3$ bits, $f_{m,M}=300$\,MHz, SPI at 10\,MHz. $^\dagger$Set by $T_{\rm sym}=1.4\,\mu$s; the DDS itself switches in tens of ns. $^\ddagger$16 parallel chains at 100\,MHz. Per-element phase offsets imposed by time coding need a timing resolution of $1/(2^B f_{m,M})$; a global 0/$\pi$ line that toggles every element's phase state avoids it but still switches all beamforming elements at $f_m$.}
+\end{tabular}
+\end{table*}

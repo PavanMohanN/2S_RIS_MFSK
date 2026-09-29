@@ -1,0 +1,68 @@
+==========================================================================
+ PHASE 4 -- Phase noise (R3.1) and inter-layer misalignment (R3.3)
+==========================================================================
+ SNR1 = -14.5 dB   trials = 1000   beta = 60 deg
+
+[A1] Static element phase noise on top of 3-bit quantisation
+    3-bit quantisation: loss 0.218 dB (theory sinc^2: 0.224 dB), uniform-error equivalent sigma = 13.0 deg
+    sigma    0 deg  gain loss  0.22 dB (theory  0.22, p95  0.22)  SLL  -12.7 dB  point rms 0.870 deg | path 1.94/1.91 cm  pos 2.56/2.55 cm
+    sigma    5 deg  gain loss  0.25 dB (theory  0.26, p95  0.27)  SLL  -12.7 dB  point rms 0.870 deg | path 1.95/1.92 cm  pos 2.57/2.56 cm
+    sigma   10 deg  gain loss  0.35 dB (theory  0.36, p95  0.39)  SLL  -12.6 dB  point rms 0.878 deg | path 1.97/1.94 cm  pos 2.60/2.59 cm
+    sigma   13 deg  gain loss  0.44 dB (theory  0.45, p95  0.51)  SLL  -12.5 dB  point rms 0.879 deg | path 1.99/1.96 cm  pos 2.62/2.61 cm
+    sigma   15 deg  gain loss  0.51 dB (theory  0.52, p95  0.58)  SLL  -12.5 dB  point rms 0.877 deg | path 2.01/1.98 cm  pos 2.65/2.64 cm
+    sigma   20 deg  gain loss  0.75 dB (theory  0.75, p95  0.86)  SLL  -12.4 dB  point rms 0.881 deg | path 2.06/2.03 cm  pos 2.72/2.71 cm
+    sigma   25 deg  gain loss  1.04 dB (theory  1.05, p95  1.20)  SLL  -12.2 dB  point rms 0.890 deg | path 2.13/2.10 cm  pos 2.81/2.80 cm
+    sigma   30 deg  gain loss  1.40 dB (theory  1.41, p95  1.59)  SLL  -12.1 dB  point rms 0.913 deg | path 2.23/2.19 cm  pos 2.93/2.92 cm
+    sigma   35 deg  gain loss  1.83 dB (theory  1.84, p95  2.12)  SLL  -11.9 dB  point rms 0.937 deg | path 2.34/2.30 cm  pos 3.08/3.07 cm
+    sigma   40 deg  gain loss  2.34 dB (theory  2.33, p95  2.69)  SLL  -11.7 dB  point rms 0.952 deg | path 2.48/2.44 cm  pos 3.27/3.25 cm
+
+[A2] PIN switching jitter (independent per element and symbol)
+    sigma_t =     1 ps -> loss at 300 MHz: 0.0000 dB
+    sigma_t =    10 ps -> loss at 300 MHz: 0.0015 dB
+    sigma_t =    30 ps -> loss at 300 MHz: 0.0139 dB
+    sigma_t =   100 ps -> loss at 300 MHz: 0.1543 dB
+    sigma_t =   300 ps -> loss at 300 MHz: 1.3888 dB
+    tolerance: 180 ps (0.5 dB), 255 ps (1 dB)
+
+[A3] Common-mode oscillator phase noise (Wiener, linewidth dnu) over the CPI
+    dnu    0.0 Hz  loss -0.00 dB (MC -0.00)  path   1.85 cm  vel   0.59 cm/s  pos   2.41 cm
+    dnu    0.3 Hz  loss  0.02 dB (MC  0.02)  path   1.85 cm  vel   1.13 cm/s  pos   2.42 cm
+    dnu    1.0 Hz  loss  0.08 dB (MC  0.08)  path   1.86 cm  vel   1.84 cm/s  pos   2.43 cm
+    dnu    3.0 Hz  loss  0.23 dB (MC  0.23)  path   1.89 cm  vel   3.06 cm/s  pos   2.47 cm
+    dnu   10.0 Hz  loss  0.75 dB (MC  0.74)  path   1.96 cm  vel   5.50 cm/s  pos   2.61 cm
+    dnu   30.0 Hz  loss  2.05 dB (MC  2.01)  path   2.17 cm  vel   9.81 cm/s  pos   3.00 cm
+    dnu  100.0 Hz  loss  5.20 dB (MC  5.14)  path   2.77 cm  vel  22.86 cm/s  pos   4.26 cm
+    tolerance: dnu = 6.6 Hz (0.5 dB), 13.6 Hz (1 dB) -> Tx and Rx must share a frequency reference
+
+[B] Inter-layer coupling: angular-spectrum (Rayleigh-Sommerfeld) model
+    f = 0.500: coupling at 0.01 mm -0.13 dB, at 2 mm -11.06 dB, at 6 mm -12.38 dB (f^4 limit -12.04 dB)
+    f = 0.625: coupling at 0.01 mm -0.11 dB, at 2 mm -7.74 dB, at 6 mm -8.50 dB (f^4 limit -8.16 dB)
+    f = 0.875: coupling at 0.01 mm -0.06 dB, at 2 mm -2.45 dB, at 6 mm -2.67 dB (f^4 limit -2.32 dB)
+    submitted Eq.(11) at 2 mm: -10.19 dB; slope 5.10 dB/mm without saturation
+    local gap slope at 2 mm (f = 0.5): 2.19 dB/mm
+    f=0.5: gap      max disp 1.50 mm -> loss +1.34 dB, max pointing 0.000 deg
+    f=0.5: lat_x    max disp 2.68 mm -> loss +1.31 dB, max pointing 0.070 deg
+    f=0.5: lat_diag max disp 3.79 mm -> loss +1.90 dB, max pointing 0.065 deg
+    f=0.5: rot      max disp 2.97 mm -> loss +0.94 dB, max pointing 0.000 deg
+    f=0.5: tilt     max disp 1.75 mm -> loss -1.90 dB, max pointing 0.325 deg
+    central block, f = 0.500: coupling at 6 mm -12.11 dB (f^4 limit -12.04 dB)
+    central block, f = 0.625: coupling at 6 mm -8.21 dB (f^4 limit -8.16 dB)
+    central block, f = 0.875: coupling at 6 mm -2.34 dB (f^4 limit -2.32 dB)
+    full-period shift: central block 0.001 dB; whole array +0.56 dB (one column uncovered)
+
+[C] Outputs
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\paper\figures\FF_phase_noise.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\paper\figures\FH_interlayer_coupling.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\results\exp04_hardware_coupling\tables\TH_tolerance_budget.tex
+
+[checks] Validation
+    [PASS] 3-bit loss matches sinc^2 theory (< 0.02 dB)
+    [PASS] static phase-noise gain loss matches theory (< 0.1 dB, sigma <= 30 deg)
+    [PASS] estimator stays efficient under phase noise (RMSE/CRB within 10% of sigma=0)
+    [PASS] position RMSE rises < 10% for sigma_phi <= 20 deg
+    [PASS] Wiener integration loss: closed form = Monte Carlo (< 0.2 dB)
+    [PASS] AS model: continuous to unit coupling as gap -> 0 (< 0.3 dB at 0.01 mm)
+    [PASS] AS model: central block saturates at fundamental-mode limit f^4 (< 0.15 dB at 6 mm)
+    [PASS] AS model (f=0.5) within 1 dB of submitted C0 at 2 mm
+    [PASS] lateral response periodic in the cell (central block, full-period shift < 0.1 dB)
+    time 739 s

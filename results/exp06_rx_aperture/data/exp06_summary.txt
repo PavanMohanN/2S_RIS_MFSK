@@ -1,0 +1,30 @@
+==========================================================================
+ Receive aperture scaling
+==========================================================================
+ SNR1(16) = -14.5 dB   trials = 1000   beta = 60 deg   Rx-target 8.00 m
+ Jacobian: |dp/dL| = 0.67, |dp/dtheta| = 9.24 m/rad
+
+  N_rx   D(cm)  2D^2/l(m)  defocus(dB)  sL(cm) CRB/MC   sth(deg) CRB/MC(nf)/MC(ff)      pos CRB / nf / ff (cm)
+     4     1.6      0.05       0.000    3.74  1.00   1.1048  1.06   1.06    17.99 /  19.00 /  19.00
+     8     3.7      0.26       0.000    2.65  1.01   0.3812  1.05   1.05     6.39 /   6.71 /   6.70
+    16     8.0      1.20       0.002    1.87  0.96   0.1340  0.98   0.99     2.49 /   2.46 /   2.46
+    32    16.6      5.14       0.028    1.32  0.99   0.0473  0.99   1.00     1.17 /   1.15 /   1.15
+    64    33.7     21.25       0.450    0.94  1.05   0.0167  0.97   1.05     0.68 /   0.70 /   0.72
+   128    68.0     86.35       7.716    0.66  1.01   0.0059  1.05 150.06     0.45 /   0.45 /  14.31
+
+  balance point N* = 27.7;  CRB_theta slope -1.501 (theory -1.5);  MC path slope -0.494 (theory -0.5)
+  N = 32: position 1.15 cm vs 2.46 cm at N = 16 (2.1x better)
+  N = 64: position 0.70 cm vs 2.46 cm at N = 16 (3.5x better)
+
+[out]
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\paper\figures\FI_rx_aperture.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\results\exp06_rx_aperture\tables\TI_rx_aperture.tex
+
+[checks] Validation
+    [PASS] range-focused position RMSE within 1.15x CRB for every N
+    [PASS] range-focused angle RMSE within 1.15x CRB for every N
+    [PASS] angle CRB scales as N^-1.5 (slope within 0.1)
+    [PASS] path RMSE scales as N^-0.5 with the array gain (slope within 0.1)
+    [PASS] far-field scan: negligible defocus for N <= 16 (< 0.1 dB), > 1 dB at N = 128
+    [PASS] range and angular contributions balance between N = 16 and 64
+    time 102 s

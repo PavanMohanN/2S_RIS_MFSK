@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\centering
+\caption{Multi-Tone Beam Coherence of the Two-Stage R-RIS ($N_x=16$, $M=12$, $f_{m,M}=300$\,MHz)}
+\label{tab:squint}
+\footnotesize
+\setlength{\tabcolsep}{1.6pt}
+\begin{tabular}{@{}cccccccc@{}}
+\hline\hline
+$\theta_1$ & Design & HPBW & Max squint & Worst & Aggr. & CRB & Bias \\
+(deg) & freq. & (deg) & (deg, \% HPBW) & (dB) & (dB) & (+\%) & (mm) \\
+\hline
+30 & $f_c$ & 7.3 & 0.35 (4.8) & 0.026 & 0.010 & 0.13 & 0.00 \\
+30 & centre & 7.3 & 0.16 (2.2) & 0.005 & 0.002 & 0.04 & 0.00 \\
+60 & $f_c$ & 12.7 & 1.04 (8.2) & 0.079 & 0.029 & 0.40 & 0.00 \\
+60 & centre & 12.7 & 0.49 (3.9) & 0.016 & 0.006 & 0.13 & 0.00 \\
+75 & $f_c$ & 24.5 & 2.12 (8.7) & 0.098 & 0.037 & 0.50 & 0.00 \\
+75 & centre & 24.5 & 1.09 (4.4) & 0.021 & 0.008 & 0.17 & 0.00 \\
+\hline\hline
+\multicolumn{8}{@{}p{0.97\columnwidth}@{}}{\scriptsize Worst/Aggr.: loss toward the target of the worst tone and of the mean tone power, relative to the design frequency. CRB: increase of \eqref{eq:crb_R} from the tone-dependent gains. Bias: noise-free bias of the ML path estimate. A single-stage STM-RIS re-steered per symbol has zero squint but reloads $M$ phase maps per sweep.}
+\end{tabular}
+\end{table}

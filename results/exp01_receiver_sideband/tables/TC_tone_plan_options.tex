@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\centering
+\caption{Tone-plan options: RF guard band versus required T-RIS modulation bandwidth}
+\label{tab:tone_plan}
+\footnotesize
+\setlength{\tabcolsep}{1.8pt}
+\begin{tabular}{@{}ccccccc@{}}
+\hline\hline
+$f_{\mathrm{off}}$ & Tones & Image guard & $\tau_{\mathrm{sw}}^{\max}$ & Max squint & $\Delta R_{\mathrm{path}}$ & $\sqrt{\mathrm{CRB}_L}$ \\
+(MHz) & (MHz) & (MHz) & (ns) & (deg, \% HPBW) & (m) & (cm) \\
+\hline
+0 & 25--300 & 50 (0.18\,\%) & 0.27 & 1.04 (8.2\,\%) & 1.00 & 1.87 \\
+75 & 100--375 & 200 (0.71\,\%) & 0.22 & 1.29 (10.1\,\%) & 1.00 & 1.87 \\
+150 & 175--450 & 350 (1.25\,\%) & 0.18 & 1.53 (12.1\,\%) & 1.00 & 1.87 \\
+\hline\hline
+\multicolumn{7}{@{}p{0.95\columnwidth}@{}}{\scriptsize $\tau_{\mathrm{sw}}^{\max}$: largest effective modulator time constant keeping the sideband loss at $f_{\max}$ within 1\,dB. Squint at $\theta_1=60^\circ$. Resolution and CRB are independent of $f_{\mathrm{off}}$; operating point $\mathrm{SNR}_1=-14.5$\,dB.}
+\end{tabular}
+\end{table}

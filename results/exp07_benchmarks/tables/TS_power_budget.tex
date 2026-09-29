@@ -1,0 +1,27 @@
+\begin{table}[!t]
+\centering
+\caption{Transmit-Side DC Power Budget, Identical Accounting ($N=256$)}
+\label{tab:power_budget}
+\footnotesize
+\begin{tabular}{@{}lr@{}}
+\hline\hline
+Item & W \\
+\hline
+\multicolumn{2}{@{}l}{\emph{Two-stage RIS (PIN, 2 mW/element/layer, $E_{\rm sw}=P_{\rm bias}\tau_{\rm sw}$)}}\\
+CW source (PA, 20 %) & 0.500 \\
+T-RIS PIN bias & 0.512 \\
+R-RIS bias & 0.512 \\
+T-RIS switching & 0.045 \\
+Controller, DDS, clock & 0.150 \\
+\textbf{Total} & \textbf{1.719} \\
+\hline
+\multicolumn{2}{@{}l}{\emph{AESA, 5\,mW / 15\,mW per channel}}\\
+T/R channels & 1.280 \\
+LO distribution, main amplifier & 0.870 \\
+Controller & 0.150 \\
+\textbf{Total (5 / 15 mW)} & \textbf{2.300 / 4.860} \\
+\hline
+Common bistatic receiver (excluded) & 0.630 \\
+\hline\hline
+\end{tabular}
+\end{table}

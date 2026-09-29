@@ -1,0 +1,282 @@
+{
+  "snr1_db": -14.5,
+  "snr_cpi_db": 15.602999566398122,
+  "irr_requirement_db": 26.39481202687437,
+  "typical_imbalance": [
+    0.2,
+    1.0
+  ],
+  "typical_irr_db": 36.80490119184662,
+  "irr_margin_db": 10.410089164972248,
+  "carrier_leak_db": -309.03139102312105,
+  "correlator_validation_max_dev_db": 2.5579538487363607e-12,
+  "iq_ghost_db": -36.80474925676852,
+  "iq_ghost_range_shift_bins": 0,
+  "iq_ghost_fd_target_hz": -228.8818359375,
+  "iq_ghost_fd_mirror_hz": 228.8818359375,
+  "sim_points": [
+    {
+      "gain_db": 0.0,
+      "phase_deg": 0.0,
+      "sir_sim_db": 316.9918018690581,
+      "irr_analytic_db": 306.0205999132796,
+      "carrier_leak_db": -309.1183117806409,
+      "dc_leak_db": -329.7846744757129
+    },
+    {
+      "gain_db": 0.0,
+      "phase_deg": 0.5,
+      "sir_sim_db": 47.20359735213744,
+      "irr_analytic_db": 47.20359735214,
+      "carrier_leak_db": -308.8156718098544,
+      "dc_leak_db": -329.2996012364955
+    },
+    {
+      "gain_db": 0.0,
+      "phase_deg": 1.0,
+      "sir_sim_db": 41.18283206810416,
+      "irr_analytic_db": 41.18283206810506,
+      "carrier_leak_db": -309.6540730897597,
+      "dc_leak_db": -330.0665711625916
+    },
+    {
+      "gain_db": 0.0,
+      "phase_deg": 2.0,
+      "sir_sim_db": 35.16157062772751,
+      "irr_analytic_db": 35.16157062772768,
+      "carrier_leak_db": -309.1847393060991,
+      "dc_leak_db": -329.7230492733121
+    },
+    {
+      "gain_db": 0.0,
+      "phase_deg": 5.0,
+      "sir_sim_db": 27.19813778868882,
+      "irr_analytic_db": 27.19813778868883,
+      "carrier_leak_db": -309.34269943298517,
+      "dc_leak_db": -329.924639502864
+    },
+    {
+      "gain_db": 0.1,
+      "phase_deg": 0.0,
+      "sir_sim_db": 44.796981992873526,
+      "irr_analytic_db": 44.79698199287192,
+      "carrier_leak_db": -309.37248744309693,
+      "dc_leak_db": -329.01693977043476
+    },
+    {
+      "gain_db": 0.1,
+      "phase_deg": 0.5,
+      "sir_sim_db": 42.825378625512016,
+      "irr_analytic_db": 42.825378625514006,
+      "carrier_leak_db": -309.4720946276369,
+      "dc_leak_db": -329.93299540909084
+    },
+    {
+      "gain_db": 0.1,
+      "phase_deg": 1.0,
+      "sir_sim_db": 39.61402279172953,
+      "irr_analytic_db": 39.61402279173179,
+      "carrier_leak_db": -308.8216151974421,
+      "dc_leak_db": -329.84056418754625
+    },
+    {
+      "gain_db": 0.1,
+      "phase_deg": 2.0,
+      "sir_sim_db": 34.713205311689045,
+      "irr_analytic_db": 34.713205311688796,
+      "carrier_leak_db": -309.30944452742403,
+      "dc_leak_db": -329.39216892457813
+    },
+    {
+      "gain_db": 0.1,
+      "phase_deg": 5.0,
+      "sir_sim_db": 27.123294861513017,
+      "irr_analytic_db": 27.12329486151311,
+      "carrier_leak_db": -309.3642167384321,
+      "dc_leak_db": -330.41381069433834
+    },
+    {
+      "gain_db": 0.2,
+      "phase_deg": 0.0,
+      "sir_sim_db": 38.776669891603945,
+      "irr_analytic_db": 38.77666989160466,
+      "carrier_leak_db": -309.2866379434715,
+      "dc_leak_db": -330.7219758662614
+    },
+    {
+      "gain_db": 0.2,
+      "phase_deg": 0.5,
+      "sir_sim_db": 38.19373652006464,
+      "irr_analytic_db": 38.19373652006644,
+      "carrier_leak_db": -310.00123808676733,
+      "dc_leak_db": -329.5848436925553
+    },
+    {
+      "gain_db": 0.2,
+      "phase_deg": 1.0,
+      "sir_sim_db": 36.80490119184525,
+      "irr_analytic_db": 36.80490119184662,
+      "carrier_leak_db": -308.57085043805637,
+      "dc_leak_db": -329.3332391011885
+    },
+    {
+      "gain_db": 0.2,
+      "phase_deg": 2.0,
+      "sir_sim_db": 33.59304931681513,
+      "irr_analytic_db": 33.59304931681542,
+      "carrier_leak_db": -309.36892762882275,
+      "dc_leak_db": -329.7268973540358
+    },
+    {
+      "gain_db": 0.2,
+      "phase_deg": 5.0,
+      "sir_sim_db": 26.90622571467921,
+      "irr_analytic_db": 26.90622571467927,
+      "carrier_leak_db": -309.4757823966911,
+      "dc_leak_db": -330.23547330338204
+    },
+    {
+      "gain_db": 0.5,
+      "phase_deg": 0.0,
+      "sir_sim_db": 30.81988402846492,
+      "irr_analytic_db": 30.819884028465054,
+      "carrier_leak_db": -309.64239219151915,
+      "dc_leak_db": -329.33549822689145
+    },
+    {
+      "gain_db": 0.5,
+      "phase_deg": 0.5,
+      "sir_sim_db": 30.72115005323733,
+      "irr_analytic_db": 30.721150053237626,
+      "carrier_leak_db": -309.189985445284,
+      "dc_leak_db": -329.90734890146035
+    },
+    {
+      "gain_db": 0.5,
+      "phase_deg": 1.0,
+      "sir_sim_db": 30.43772752868478,
+      "irr_analytic_db": 30.437727528685162,
+      "carrier_leak_db": -309.3649167976256,
+      "dc_leak_db": -330.40165839669777
+    },
+    {
+      "gain_db": 0.5,
+      "phase_deg": 2.0,
+      "sir_sim_db": 29.459068477972885,
+      "irr_analytic_db": 29.459068477973037,
+      "carrier_leak_db": -309.25870312113227,
+      "dc_leak_db": -330.20828529471135
+    },
+    {
+      "gain_db": 0.5,
+      "phase_deg": 5.0,
+      "sir_sim_db": 25.631637022267885,
+      "irr_analytic_db": 25.631637022267984,
+      "carrier_leak_db": -309.35920260619764,
+      "dc_leak_db": -330.5065999999004
+    },
+    {
+      "gain_db": 1.0,
+      "phase_deg": 0.0,
+      "sir_sim_db": 24.80647274592978,
+      "irr_analytic_db": 24.80647274592979,
+      "carrier_leak_db": -309.6544167279818,
+      "dc_leak_db": -328.91471984746573
+    },
+    {
+      "gain_db": 1.0,
+      "phase_deg": 0.5,
+      "sir_sim_db": 24.781537153010067,
+      "irr_analytic_db": 24.78153715301003,
+      "carrier_leak_db": -309.0641148111057,
+      "dc_leak_db": -330.191027018441
+    },
+    {
+      "gain_db": 1.0,
+      "phase_deg": 1.0,
+      "sir_sim_db": 24.70757435661678,
+      "irr_analytic_db": 24.707574356616785,
+      "carrier_leak_db": -309.4098236410983,
+      "dc_leak_db": -329.81170147088324
+    },
+    {
+      "gain_db": 1.0,
+      "phase_deg": 2.0,
+      "sir_sim_db": 24.423658546369698,
+      "irr_analytic_db": 24.423658546369662,
+      "carrier_leak_db": -309.293210397801,
+      "dc_leak_db": -329.9790379413252
+    },
+    {
+      "gain_db": 1.0,
+      "phase_deg": 5.0,
+      "sir_sim_db": 22.829435359356935,
+      "irr_analytic_db": 22.829435359356903,
+      "carrier_leak_db": -309.70902273311447,
+      "dc_leak_db": -330.1506547327051
+    }
+  ],
+  "tone_options": [
+    {
+      "f_off_mhz": 0,
+      "f_min_mhz": 25,
+      "f_max_mhz": 300,
+      "guard_mhz": 50,
+      "guard_pct": 0.17857142857142858,
+      "f_max_hz": 300000000.0,
+      "tau_req_ns": 0.26995179198261365,
+      "squint_deg": 1.035844539064901,
+      "squint_pct_hpbw": 8.162030584869322,
+      "res_m": 0.9993333333333333,
+      "crb_path_cm": 1.8723143099763746,
+      "tsb_db_fmax": -7.182004185304793
+    },
+    {
+      "f_off_mhz": 75,
+      "f_min_mhz": 100,
+      "f_max_mhz": 375,
+      "guard_mhz": 200,
+      "guard_pct": 0.7142857142857143,
+      "f_max_hz": 375000000.0,
+      "tau_req_ns": 0.215961433586091,
+      "squint_deg": 1.286619275241715,
+      "squint_pct_hpbw": 10.138032764149477,
+      "res_m": 0.9993333333333333,
+      "crb_path_cm": 1.8723143099763746,
+      "tsb_db_fmax": -7.185851753015287
+    },
+    {
+      "f_off_mhz": 150,
+      "f_min_mhz": 175,
+      "f_max_mhz": 450,
+      "guard_mhz": 350,
+      "guard_pct": 1.25,
+      "f_max_hz": 450000000.0,
+      "tau_req_ns": 0.17996786132174244,
+      "squint_deg": 1.5342925752662822,
+      "squint_pct_hpbw": 12.089596897200696,
+      "res_m": 0.9993333333333333,
+      "crb_path_cm": 1.8723143099763746,
+      "tsb_db_fmax": -7.189706085553902
+    }
+  ],
+  "tsb_spread_db": 0.007701900249108995,
+  "hpbw_deg": 12.691015162147732,
+  "dsb": {
+    "crb_ssb_cm": 1.8723143099763746,
+    "crb_dsb_indep_cm": 1.3239261450969062,
+    "crb_dsb_cal_cm": 0.620976405580481,
+    "mc_dsb_indep_cm": 1.32501953080967,
+    "mc_dsb_cal_cm": 0.6304740067712328,
+    "res_dsb_m": 0.49966666666666665
+  },
+  "gate1": {
+    "path resolution identical across tone plans": true,
+    "path CRB identical across tone plans": true,
+    "T_sb(f) flat across plans (spread 0.008 dB < 0.1 dB)": true,
+    "worst-tone squint < HPBW/2 for every plan": true,
+    "typical-imbalance IRR meets requirement": true,
+    "time-domain SIR matches analytic IRR (< 0.05 dB)": true,
+    "I/Q leakage: ghost only at mirror Doppler (-IRR), no range shift": true
+  }
+}

@@ -1,0 +1,22 @@
+\begin{table}[!t]
+\centering
+\caption{Hardware and Assembly Tolerance Budget ($d_g=2$\,mm, patch fill $f=0.50$)}
+\label{tab:tolerance}
+\footnotesize
+\setlength{\tabcolsep}{1.3pt}
+\begin{tabular}{@{}lcccl@{}}
+\hline\hline
+Impairment & 0.5\,dB & 1\,dB & Submitted & Note \\
+\hline
+Phase noise $\sigma_\phi$ & 19\,$^\circ$ & 27\,$^\circ$ & -- & beyond 3-bit \\
+Switching jitter $\sigma_t$ & 180\,ps & 255\,ps & -- & at 300\,MHz \\
+Osc. linewidth $\Delta\nu$ & 6.6\,Hz & 13.6\,Hz & -- & $v$: $\times$1.9 at 0.3\,Hz \\
+Axial gap $|\Delta d_g|$ & 0.27\,mm & 0.70\,mm & 0.10\,/\,0.20\,mm &  \\
+Lateral, $x$ & 1.13\,mm & 1.86\,mm & 0.62\,/\,0.90\,mm &  \\
+Lateral, diagonal & 1.11\,mm & 1.75\,mm & -- &  \\
+Rotation & 1.86\,mm & $>$3.0\,mm & -- & 3$^\circ$ = 3.0\,mm \\
+Tilt & none & none & -- & gain; $\le$0.33$^\circ$ pointing \\
+\hline\hline
+\multicolumn{5}{@{}p{0.97\columnwidth}@{}}{\scriptsize Tolerances give the impairment that costs 0.5 or 1\,dB of array gain (phase noise, assembly) or of coherent-integration gain (linewidth). Assembly values are maximum element displacements from the angular-spectrum model; ``Submitted'' is the on-axis exponential model \eqref{eq:C0}. A 1\,dB loss raises the position RMSE by 12\,\%, the estimator remaining efficient.}
+\end{tabular}
+\end{table}

@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\centering
+\caption{Positioning Versus Receive Aperture ($\beta=60^\circ$, Rx--Target Distance 8\,m)}
+\label{tab:rx_aperture}
+\footnotesize
+\setlength{\tabcolsep}{1.5pt}
+\begin{tabular}{@{}ccccccccc@{}}
+\hline\hline
+$N_{\rm rx}$ & $D$ & $G_{\rm rx}$ & $2D^2/\lambda$ & $\sqrt{\mathrm{CRB}_L}$ & $\sqrt{\mathrm{CRB}_\theta}$ & $\sqrt{\mathrm{CRB}_{\rm pos}}$ & RMSE & RMSE \\
+ & (cm) & (dBi) & (m) & (cm) & (deg) & (cm) & focused & far field \\
+\hline
+4 & 1.6 & 12 & 0.0 & 3.74 & 1.1048 & 17.99 & 19.00 & 19.00 \\
+8 & 3.7 & 15 & 0.3 & 2.65 & 0.3812 & 6.39 & 6.71 & 6.70 \\
+16 & 8.0 & 18 & 1.2 & 1.87 & 0.1340 & 2.49 & 2.46 & 2.46 \\
+32 & 16.6 & 21 & 5.1 & 1.32 & 0.0473 & 1.17 & 1.15 & 1.15 \\
+64 & 33.7 & 24 & 21.2 & 0.94 & 0.0167 & 0.68 & 0.70 & 0.72 \\
+128 & 68.0 & 27 & 86.3 & 0.66 & 0.0059 & 0.45 & 0.45 & 14.31 \\
+\hline\hline
+\multicolumn{9}{@{}p{0.97\columnwidth}@{}}{\scriptsize Half-wavelength spacing; $G_{\rm rx}$ and $\mathrm{SNR}_1$ scale with $N_{\rm rx}$ from the 16-element values of Table~\ref{tab:sys_params}. RMSE in cm (Monte Carlo); ``focused'' scans with the Rx--target distance known from the path estimate.}
+\end{tabular}
+\end{table}

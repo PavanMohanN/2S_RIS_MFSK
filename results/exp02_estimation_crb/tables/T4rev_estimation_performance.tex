@@ -1,0 +1,28 @@
+\begin{table}[!t]
+\centering
+\caption{Estimation Performance Summary at the Operating Point}
+\label{tab:estimation_perf}
+\footnotesize
+\begin{tabular}{@{}lrl@{}}
+\hline\hline
+Metric & Value & Units \\
+\hline
+Operating single-symbol SNR & $-14.5$ & dB \\
+Post-CPI SNR ($N_{\mathrm{sw}}$=1024) & $15.6$ & dB \\
+Path resolution $c/(M\Delta f)$ & 1.00 & m \\
+Unambiguous path $c/\Delta f$ & 11.99 & m \\
+Velocity resolution $\lambda/(2T_{\mathrm{CPI}})$ & 31.12 & cm/s \\
+CRB path $\sqrt{\mathrm{CRB}_L}$, \eqref{eq:crb_R} & 1.87 & cm \\
+CRB velocity & 0.58 & cm/s \\
+CRB angle & 0.134 & deg \\
+CRB position ($\beta=60^\circ$) & 2.49 & cm \\
+RMSE path: argmax / refined & 4.09 / 1.84 & cm \\
+RMSE velocity: FFT / refined & 8.96 / 0.59 & cm/s \\
+RMSE angle: 0.5$^\circ$ scan / refined & 0.200 / 0.134 & deg \\
+RMSE position: coarse / refined & 4.26 / 2.45 & cm \\
+Efficiency RMSE/CRB (path, refined) & 0.98 & -- \\
+MC trials per SNR point & 1000 & -- \\
+\hline\hline
+\multicolumn{3}{@{}p{0.95\columnwidth}@{}}{\scriptsize Operating point $\mathrm{SNR}_1=-14.5$\,dB, $N_{\mathrm{sw}}=1024$, $M=12$; refined = coherent 2-D processing with ML peak refinement (Section~\ref{sec:efficiency}).}
+\end{tabular}
+\end{table}

@@ -1,0 +1,32 @@
+\begin{table}[!t]
+\centering
+\caption{Error Budget of the Bistatic Path Estimate at $\mathrm{SNR}_1=-14.5$\,dB}
+\label{tab:error_budget}
+\footnotesize
+\setlength{\tabcolsep}{1.5pt}
+\begin{tabular}{@{}clcccccc@{}}
+\hline\hline
+ & Configuration & RMSE & Bias & Std & Out. & Bound & Ratio \\
+ &  & (cm) & (cm) & (cm) & (\%) & (cm) &  \\
+\hline
+\multicolumn{8}{@{}l}{\emph{(a) Estimator (ideal hardware)}}\\
+E1 & sweep-power avg., $N_{\mathrm{sw}}$=256 & 9.51 & +0.27 & 9.51 & 0.1 & 1.87 & 5.08 \\
+E2 & sweep-power avg., $N_{\mathrm{sw}}$=1024 & 4.96 & +0.36 & 4.95 & 0.0 & 1.87 & 2.65 \\
+E3 & coherent 2-D, argmax & 4.09 & -0.10 & 4.09 & 0.0 & 1.87 & 2.19 \\
+E4 & coherent 2-D + interpolation & 1.84 & 0.00 & 1.84 & 0.0 & 1.87 & 0.99 \\
+E5 & coherent 2-D + ML refinement & 1.84 & 0.00 & 1.84 & 0.0 & 1.87 & 0.98 \\
+\hline
+\multicolumn{8}{@{}l}{\emph{(b) Hardware, estimator E5; Std column = gain loss (dB)}}\\
+& Ideal (continuous phase) & 1.98 & -0.05 & 0.03 & -- & 1.88 & 1.05 \\
+& 1-bit phase quantisation & 3.34 & -0.09 & 4.53 & -- & 3.15 & 1.06 \\
+& 2-bit & 2.17 & -0.06 & 0.84 & -- & 2.06 & 1.05 \\
+& 3-bit (nominal) & 2.01 & -0.05 & 0.18 & -- & 1.91 & 1.05 \\
+& + spread 2\,\%/3$^\circ$ & 2.01 & -0.05 & 0.19 & -- & 1.91 & 1.05 \\
+& + spread 10\,\%/15$^\circ$ & 2.08 & -0.06 & 0.48 & -- & 1.98 & 1.05 \\
+& + pointing 0.5$^\circ$ & 2.03 & -0.06 & 0.24 & -- & 1.93 & 1.05 \\
+& + pointing 2$^\circ$ & 2.10 & -0.06 & 0.49 & -- & 2.00 & 1.05 \\
+& Combined nominal & 2.03 & -0.06 & 0.25 & -- & 1.93 & 1.05 \\
+\hline\hline
+\multicolumn{8}{@{}p{0.97\columnwidth}@{}}{\scriptsize Bound: \eqref{eq:crb_R}, recomputed in (b) with the tone-resolved R-RIS gains. Rows of (b) share one noise stream (common random numbers), so they differ only in the hardware; that stream differs from (a), so the ideal row of (b) and E5 differ by Monte Carlo variation ($\pm$2.2\,\% standard error). Outliers: $|e|>0.5$\,m.}
+\end{tabular}
+\end{table}

@@ -1,0 +1,37 @@
+==========================================================================
+ Multi-tone beam coherence and squint
+==========================================================================
+
+[1] Squint formula check at theta1 = 60 deg, worst tone (300 MHz)
+    submitted Eq.(14)   : +0.532 deg
+    exact (phase-only)  : -1.036 deg   small-angle -1.063
+    array-factor peak   : -1.036 deg
+
+[2] Per-design summary (continuous phases; loss re. design frequency)
+    th1=  30  design=carrier HPBW  7.33  max squint 0.350 (4.8%)  worst 0.026 dB  aggr 0.010 dB  CRB +0.13%  bias +0.000 mm  [formula-AF dev 0.0000 deg]
+    th1=  30  design=centre  HPBW  7.33  max squint 0.162 (2.2%)  worst 0.005 dB  aggr 0.002 dB  CRB +0.04%  bias +0.000 mm  [formula-AF dev 0.0000 deg]
+    th1=  60  design=carrier HPBW 12.69  max squint 1.036 (8.2%)  worst 0.079 dB  aggr 0.029 dB  CRB +0.40%  bias +0.000 mm  [formula-AF dev 0.0000 deg]
+    th1=  60  design=centre  HPBW 12.69  max squint 0.491 (3.9%)  worst 0.016 dB  aggr 0.006 dB  CRB +0.13%  bias +0.000 mm  [formula-AF dev 0.0000 deg]
+    th1=  75  design=carrier HPBW 24.52  max squint 2.121 (8.7%)  worst 0.098 dB  aggr 0.037 dB  CRB +0.50%  bias +0.000 mm  [formula-AF dev 0.0000 deg]
+    th1=  75  design=centre  HPBW 24.52  max squint 1.088 (4.4%)  worst 0.021 dB  aggr 0.008 dB  CRB +0.17%  bias +0.000 mm  [formula-AF dev 0.0000 deg]
+
+[3] Validity map (worst-tone loss vs fractional bandwidth and N_x, theta1 = 60 deg)
+    1-dB contour: N_x * B_f * sin(theta1) = 0.523 (median; spread 0.523-0.525)
+    this work: N_x B_f sin = 0.148  -> worst loss 0.079 dB
+    if the R-RIS had N_x =  32: worst-tone loss 0.32 dB (carrier design)
+    if the R-RIS had N_x =  64: worst-tone loss 1.30 dB (carrier design)
+    if the R-RIS had N_x = 128: worst-tone loss 5.80 dB (carrier design)
+
+[4] Writing figure and table
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\paper\figures\F4rev_multitone_beam.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\results\exp03_beam_squint\tables\TE_squint_summary.tex
+
+[checks] Validation
+    [PASS] exact squint formula matches array-factor peak (< 0.01 deg, all angles/designs)
+    [PASS] worst-tone squint < HPBW/2 at 30/60/75 deg
+    [PASS] aggregate squint loss < 0.1 dB at 60 deg (carrier design)
+    [PASS] squint-induced range bias < 0.1 x CRB at SNR1
+    [PASS] rule N_x B_f sin(theta1) constant along 1-dB contour (spread < 15%)
+    [PASS] centre-frequency design halves the maximum squint (ratio 0.45-0.55)
+    info: submitted Eq.(14) differs from the array factor by 0.50 deg (51% of the true magnitude, opposite sign) -> correction required
+    time 17.9 s

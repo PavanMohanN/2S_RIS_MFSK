@@ -1,0 +1,50 @@
+==========================================================================
+ Fair benchmarks
+==========================================================================
+
+[A] Control plane and modulation drive (N = 256, 3-bit, f_m,max = 300 MHz)
+    single stage, SPI reload      : 76.8 us/symbol -> 13.0 kHz (submitted)
+    single stage, 16 parallel chains @ 100 MHz: 0.48 us -> 2.08 MHz
+    two stage, T_sym = 1.4 us     : 714.3 kHz
+    per-element phase via time coding: timing resolution 0.42 ns (2.4 GHz clock), aggregate 614 Gbit/s
+    two-stage beamformer update   : 45 kbit/s (once per CPI)
+    -> the 55x claim holds only against SPI reloading; the invariant is that a single stage switches
+       every beamforming element at f_m, whereas the two stage confines this to the T-RIS.
+
+[B] Three-target scene at equal bandwidth, CPI and energy
+    true (path, rate)          : (4 m, +0 m/s), (7 m, +3 m/s), (10 m, -2 m/s)
+    M-FSK 2-D                  : (4.00, -0.00), (7.00, +3.11), (9.99, -1.87)
+    FMCW one CPI-long chirp    : 3.99, 6.91, 11.77   predicted 4.00, 6.79, 11.82
+    chirp-sequence FMCW 2-D    : (4.03, -0.00), (6.93, +3.11), (9.95, -1.87)
+    FFT operations per CPI     : M-FSK 7.82e+05, chirp-sequence FMCW 3.04e+06 (ratio 3.88); FMCW fast-time samples per chirp 25
+
+[C] Power, identical accounting boundaries
+    submitted: two-stage 2.326 W (includes receiver 0.63 W); AESA text 4.71 W (excludes receiver), AESA bar 6.56 W (different DSP/controller, extra phase shifters)
+    Eq.(48): 1/2 C_J V^2 = 9.6 fJ (paper states 10 pJ); stored-charge estimate P_bias*tau_sw = 0.54 pJ
+      RIS  CW source (PA, 20 %)              0.500 W
+      RIS  T-RIS PIN bias                    0.512 W
+      RIS  R-RIS bias                        0.512 W
+      RIS  T-RIS switching                   0.045 W
+      RIS  Controller, DDS, clock            0.150 W
+      RIS total 1.719 W  | voltage-driven R-RIS 1.207 W | pessimistic E_sw=10 pJ 2.506 W
+      AESA @ 2 mW : 1.532 W  -> RIS -12%  (voltage-driven R-RIS +21%)
+      AESA @ 5 mW : 2.300 W  -> RIS +25%  (voltage-driven R-RIS +48%)
+      AESA @ 15 mW: 4.860 W  -> RIS +65%  (voltage-driven R-RIS +75%)
+    break-even P_ch: PIN 2.73 mW, voltage-driven 0.73 mW, pessimistic 5.80 mW
+    full system incl. common receiver (0.63 W): RIS 2.35 W vs AESA(5 mW) 2.93 W -> 20% lower
+    per-element costs scale identically with N (2 P_bias vs P_ch): there is no crossover in N.
+
+[out]
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\paper\figures\F11rev_fmcw_fair.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\paper\figures\F12rev_power.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\results\exp07_benchmarks\tables\T5rev_architecture.tex
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\results\exp07_benchmarks\tables\TS_power_budget.tex
+
+[checks] Validation
+    [PASS] SPI baseline reproduces the submitted 13.0 kHz
+    [PASS] submitted power figures reproduced (2.33 W, 4.71 W, 6.56 W)
+    [PASS] one CPI-long FMCW chirp puts the ghosts where the coupling model predicts (< 1/4 resolution cell)
+    [PASS] M-FSK 2-D resolves all three targets (within one bin in path and path rate)
+    [PASS] chirp-sequence FMCW 2-D resolves all three targets equally, no ghosts
+    [PASS] break-even consistent: totals equal at P_ch* (< 1e-9 W)
+    time 4 s

@@ -1,0 +1,363 @@
+{
+  "n_trials": 1000,
+  "beta_deg": 60.0,
+  "f_off_mhz": 0.0,
+  "p_rx": [
+    1.732050807568875,
+    9.0
+  ],
+  "snr1_db": -14.5,
+  "snr_cpi_db": 15.602999566398122,
+  "legacy_exact": null,
+  "bounds": {
+    "crb_L_cm": 1.8723143099763746,
+    "crb_L_legacy_m14_cm": 1.2498668766780296,
+    "crb_v_cms": 0.5810179103378444,
+    "crb_theta_deg": 0.13397929658744573,
+    "crb_pos_cm": 2.4948088385781535,
+    "crb_pos_legacy_geometry_cm": 22.255025145134724,
+    "jacobian": [
+      [
+        0.5773502831374344,
+        8.881784197001252e-09
+      ],
+      [
+        -0.3333333387089965,
+        -9.23760429483167
+      ]
+    ]
+  },
+  "ladder": [
+    {
+      "rmse": 0.07305404135524139,
+      "bias": 0.0013280000000004454,
+      "std": 0.0730419699510721,
+      "p_out": 0.0,
+      "mse": 0.005336892958333319,
+      "mse_bias": 1.7635840000011828e-06,
+      "mse_var": 0.005335129374333319,
+      "mse_out": 0.0,
+      "label": "as submitted",
+      "label_tex": "As submitted",
+      "bound": 0.012498668766780296,
+      "ratio": 5.844945787299265,
+      "paper": "",
+      "paper_tex": "",
+      "v_rmse": 0.5690076063915421
+    },
+    {
+      "rmse": 0.08081275098783737,
+      "bias": 0.0030768333333337505,
+      "std": 0.08075415666614999,
+      "p_out": 0.0,
+      "mse": 0.00653070072222221,
+      "mse_bias": 9.466903361113678e-06,
+      "mse_var": 0.0065212338188610965,
+      "mse_out": 0.0,
+      "label": "+ corrected bound, -14.5 dB",
+      "label_tex": "+ Eq.~(37) bound, $-14.5$\\,dB",
+      "bound": 0.018723143099763747,
+      "ratio": 4.316195766770435,
+      "paper": "",
+      "paper_tex": "",
+      "v_rmse": 0.5688661049717226
+    },
+    {
+      "rmse": 0.09513708428678212,
+      "bias": 0.002693643727138804,
+      "std": 0.09509894368530879,
+      "p_out": 0.0010000000000000009,
+      "mse": 0.009051064806590287,
+      "mse_bias": 1.3507946148251695e-06,
+      "mse_var": 0.006702726505278971,
+      "mse_out": 0.0023469875066964895,
+      "label": "+ physical signal model",
+      "label_tex": "+ physical signal model",
+      "bound": 0.018723143099763747,
+      "ratio": 5.081256057268642,
+      "paper": "sweep-power avg., N_sw=256",
+      "paper_tex": "sweep-power avg., $N_{\\mathrm{sw}}$=256",
+      "v_rmse": 0.3632531743559823
+    },
+    {
+      "rmse": 0.049623193767707026,
+      "bias": 0.003625055367507997,
+      "std": 0.04949060853626573,
+      "p_out": 0.0,
+      "mse": 0.0024624613597073975,
+      "mse_bias": 1.314102641749854e-05,
+      "mse_var": 0.0024493203332898988,
+      "mse_out": 0.0,
+      "label": "+ full CPI (1024 sweeps)",
+      "label_tex": "+ full CPI ($N_{\\mathrm{sw}}$=1024)",
+      "bound": 0.018723143099763747,
+      "ratio": 2.6503666346668675,
+      "paper": "sweep-power avg., N_sw=1024",
+      "paper_tex": "sweep-power avg., $N_{\\mathrm{sw}}$=1024",
+      "v_rmse": 0.08971103297473088
+    },
+    {
+      "rmse": 0.04091359329747891,
+      "bias": -0.001006227830527889,
+      "std": 0.040901217855518465,
+      "p_out": 0.0,
+      "mse": 0.0016739221165115112,
+      "mse_bias": 1.012494446928862e-06,
+      "mse_var": 0.0016729096220645823,
+      "mse_out": 0.0,
+      "label": "+ coherent 2-D processing",
+      "label_tex": "+ coherent 2-D processing",
+      "bound": 0.018723143099763747,
+      "ratio": 2.185188303025637,
+      "paper": "coherent 2-D, argmax",
+      "paper_tex": "coherent 2-D, argmax",
+      "v_rmse": 0.023585898660052607
+    },
+    {
+      "rmse": 0.018448833935000526,
+      "bias": -1.0945873012373041e-05,
+      "std": 0.018448830687853662,
+      "p_out": 0.0,
+      "mse": 0.00034035947356122706,
+      "mse_bias": 1.1981213600299648e-10,
+      "mse_var": 0.00034035935374909104,
+      "mse_out": 0.0,
+      "label": "+ parabolic interpolation",
+      "label_tex": "+ peak interpolation",
+      "bound": 0.018723143099763747,
+      "ratio": 0.985349192531318,
+      "paper": "coherent 2-D + interpolation",
+      "paper_tex": "coherent 2-D + interpolation",
+      "v_rmse": 0.0091972877520341
+    },
+    {
+      "rmse": 0.01843630908394591,
+      "bias": -1.8774147172921474e-05,
+      "std": 0.018436299524855426,
+      "p_out": 0.0,
+      "mse": 0.00033989749263878646,
+      "mse_bias": 3.5246860207051537e-10,
+      "mse_var": 0.00033989714017018435,
+      "mse_out": 0.0,
+      "label": "+ ML refinement",
+      "label_tex": "+ ML refinement",
+      "bound": 0.018723143099763747,
+      "ratio": 0.9846802422921472,
+      "paper": "coherent 2-D + ML refinement",
+      "paper_tex": "coherent 2-D + ML refinement",
+      "v_rmse": 0.005881510186122469
+    }
+  ],
+  "mechanisms": [
+    {
+      "rmse": 0.019773564885495164,
+      "bias": -0.0005368345855821754,
+      "std": 0.019766276252967077,
+      "p_out": 0.0,
+      "mse": 0.0003909938682808874,
+      "mse_bias": 2.8819137227718607e-07,
+      "mse_var": 0.00039070567690861015,
+      "mse_out": 0.0,
+      "label": "ideal (continuous phase)",
+      "label_tex": "Ideal (continuous phase)",
+      "bound": 0.018797975778867104,
+      "ratio": 1.0518986255809961,
+      "stressed": false,
+      "gain_loss_db": 0.029460710123929392
+    },
+    {
+      "rmse": 0.03340469688757117,
+      "bias": -0.0008787761385555743,
+      "std": 0.03339313592115619,
+      "p_out": 0.0,
+      "mse": 0.0011158737741505066,
+      "mse_bias": 7.722475016946459e-07,
+      "mse_var": 0.0011151015266488119,
+      "mse_out": 0.0,
+      "label": "1-bit",
+      "label_tex": "1-bit phase quantisation",
+      "bound": 0.031549688067569664,
+      "ratio": 1.0587964234710863,
+      "stressed": true,
+      "gain_loss_db": 4.528412045022802
+    },
+    {
+      "rmse": 0.02173340233957091,
+      "bias": -0.0005880338132744214,
+      "std": 0.02172544576040069,
+      "p_out": 0.0,
+      "mse": 0.0004723407772536663,
+      "mse_bias": 3.457837655540571e-07,
+      "mse_var": 0.00047199499348811225,
+      "mse_out": 0.0,
+      "label": "2-bit",
+      "label_tex": "2-bit",
+      "bound": 0.020644029029725827,
+      "ratio": 1.0527694137746302,
+      "stressed": false,
+      "gain_loss_db": 0.8431757365048921
+    },
+    {
+      "rmse": 0.020118442969927108,
+      "bias": -0.0005466683047530783,
+      "std": 0.02011101442739246,
+      "p_out": 0.0,
+      "mse": 0.0004047517475342094,
+      "mse_bias": 2.9884623542160446e-07,
+      "mse_var": 0.0004044529012987878,
+      "mse_out": 0.0,
+      "label": "3-bit (nominal)",
+      "label_tex": "3-bit (nominal)",
+      "bound": 0.019123169318898344,
+      "ratio": 1.052045434228582,
+      "stressed": false,
+      "gain_loss_db": 0.1785041179894259
+    },
+    {
+      "rmse": 0.020143396562927685,
+      "bias": -0.0005443972080173154,
+      "std": 0.020136038755705396,
+      "p_out": 0.0,
+      "mse": 0.0004057564250913668,
+      "mse_bias": 2.963683200970481e-07,
+      "mse_var": 0.0004054600567712697,
+      "mse_out": 0.0,
+      "label": "3-bit + spread 2%/3deg",
+      "label_tex": "+ spread 2\\,\\%/3$^\\circ$",
+      "bound": 0.019148190598054907,
+      "ratio": 1.051973890680505,
+      "stressed": false,
+      "gain_loss_db": 0.18982867071253448
+    },
+    {
+      "rmse": 0.020817040887588758,
+      "bias": -0.0005607307216764959,
+      "std": 0.02080948755672062,
+      "p_out": 0.0,
+      "mse": 0.00043334919131554216,
+      "mse_bias": 3.144189422318439e-07,
+      "mse_var": 0.0004330347723733103,
+      "mse_out": 0.0,
+      "label": "3-bit + spread 10%/15deg",
+      "label_tex": "+ spread 10\\,\\%/15$^\\circ$",
+      "bound": 0.01979305422471429,
+      "ratio": 1.0517346464698654,
+      "stressed": true,
+      "gain_loss_db": 0.476636506268701
+    },
+    {
+      "rmse": 0.020265832157975637,
+      "bias": -0.0005518715197305184,
+      "std": 0.020258316585564304,
+      "p_out": 0.0,
+      "mse": 0.00041070395305523944,
+      "mse_bias": 3.0456217428967195e-07,
+      "mse_var": 0.00041039939088094977,
+      "mse_out": 0.0,
+      "label": "3-bit + pointing 0.5deg",
+      "label_tex": "+ pointing 0.5$^\\circ$",
+      "bound": 0.019260216617611806,
+      "ratio": 1.0522120576486291,
+      "stressed": false,
+      "gain_loss_db": 0.23899018842556435
+    },
+    {
+      "rmse": 0.020964641026020168,
+      "bias": -0.0005639303060285136,
+      "std": 0.020957055040244334,
+      "p_out": 0.0,
+      "mse": 0.0004395161733498879,
+      "mse_bias": 3.1801739005741305e-07,
+      "mse_var": 0.0004391981559598305,
+      "mse_out": 0.0,
+      "label": "3-bit + pointing 2deg",
+      "label_tex": "+ pointing 2$^\\circ$",
+      "bound": 0.019964599640241124,
+      "ratio": 1.0500907307834682,
+      "stressed": true,
+      "gain_loss_db": 0.4875793086377644
+    },
+    {
+      "rmse": 0.02028137739073195,
+      "bias": -0.0005535920812669079,
+      "std": 0.020273820672799977,
+      "p_out": 0.0,
+      "mse": 0.0004113342688652931,
+      "mse_bias": 3.064641924414268e-07,
+      "mse_var": 0.0004110278046728517,
+      "mse_out": 0.0,
+      "label": "combined nominal",
+      "label_tex": "Combined nominal",
+      "bound": 0.019285257233651792,
+      "ratio": 1.0516518989097008,
+      "stressed": false,
+      "gain_loss_db": 0.25026622764892675
+    }
+  ],
+  "zero_padding": {
+    "1": {
+      "argmax": 0.29193006359507556,
+      "parabolic": 0.2022302580598233
+    },
+    "2": {
+      "argmax": 0.14446858926802708,
+      "parabolic": 0.03101167440752188
+    },
+    "4": {
+      "argmax": 0.07565506914300872,
+      "parabolic": 0.01898231882436803
+    },
+    "8": {
+      "argmax": 0.040711655073710704,
+      "parabolic": 0.0186130877644406
+    },
+    "16": {
+      "argmax": 0.025425488632297395,
+      "parabolic": 0.018617722959003113
+    },
+    "32": {
+      "argmax": 0.02062180071035646,
+      "parabolic": 0.018618316780726712
+    },
+    "64": {
+      "argmax": 0.01933330545937219,
+      "parabolic": 0.018618477310537528
+    }
+  },
+  "angle_rmse_deg": {
+    "grid": 0.1999146282690957,
+    "parabolic": 0.1339366377665369,
+    "ml": 0.13392412899006237
+  },
+  "position_cm": {
+    "coarse": 4.257418673440593,
+    "refined": 2.446051660649933,
+    "refined_legacy_geometry": 21.43321920230335
+  },
+  "operating_point": {
+    "crb_L": 0.018723143099763747,
+    "crb_v": 0.005810179103378444,
+    "crb_th": 0.0023383798549569306,
+    "crb_pos": 0.024948088385781535,
+    "beta": 60.0,
+    "L_argmax": 0.04091359329747891,
+    "L_ml": 0.01843630908394591,
+    "v_fft": 0.08959985957813996,
+    "v_ml": 0.005881510186122469,
+    "th_grid": 0.0034891684861962525,
+    "th_ml": 0.0023374169987421763,
+    "pos_coarse": 0.04257418673440594,
+    "pos_ml": 0.02446051660649933,
+    "n_trials": 1000
+  },
+  "gate2": {
+    "L0 replica within 10% of the submitted 7.14 cm": true,
+    "refined path estimator efficient at +10 dB (RMSE/CRB < 1.15)": true,
+    "refined path estimator at SNR1 within 1.25x of Eq. (37)": true,
+    "refined angle within 1.15x of exact CRB at SNR1": true,
+    "refined velocity within 1.25x of CRB at SNR1": true,
+    "refined position within 1.25x of Jacobian CRB at SNR1": true,
+    "interpolated range reaches CRB (< 1.1x) for N_FFT >= 4M": true,
+    "non-stressed hardware changes RMSE/bound by < 10% vs ideal (common random numbers)": true
+  }
+}

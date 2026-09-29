@@ -1,0 +1,93 @@
+{
+  "control": {
+    "t_spi_us": 76.8,
+    "rate_spi_khz": 13.020833333333334,
+    "t_par_us": 0.48,
+    "rate_par_khz": 2083.3333333333335,
+    "k_par": 16,
+    "f_par_mhz": 100.0,
+    "rate_two_stage_khz": 714.2857142857143,
+    "stc_timing_res_ns": 0.4166666666666667,
+    "stc_clock_ghz": 2.4,
+    "stc_aggregate_gbps": 614.4,
+    "rris_update_kbps": 44.642857142857146,
+    "fmax_mhz": 300.0
+  },
+  "fmcw": {
+    "mfsk": [
+      [
+        3.997333333333333,
+        -0.0
+      ],
+      [
+        6.995333333333333,
+        3.1119625584608848
+      ],
+      [
+        9.993333333333334,
+        -1.8671775350765307
+      ]
+    ],
+    "single": [
+      3.986488394202898,
+      6.914065808695652,
+      11.772598539130433
+    ],
+    "single_pred": [
+      4.0,
+      11.816896,
+      6.788736
+    ],
+    "cs": [
+      [
+        4.029311999999999,
+        -0.0
+      ],
+      [
+        6.925379999999999,
+        3.1119625584608848
+      ],
+      [
+        9.947363999999999,
+        -1.8671775350765307
+      ]
+    ],
+    "ops_mfsk": 782496.1536708926,
+    "ops_cs": 3035530.8738329317,
+    "ns": 25,
+    "err_mfsk": 0.21340627084723127,
+    "err_cs": 0.5969600000000099
+  },
+  "power": {
+    "sub_two": 2.325942857142857,
+    "sub_aesa_txt": 4.71,
+    "sub_aesa_bar": 6.555999999999999,
+    "esw48_fJ": 9.600000000000001,
+    "esw_est_pJ": 0.54,
+    "ris": {
+      "CW source (PA, 20 %)": 0.5,
+      "T-RIS PIN bias": 0.512,
+      "R-RIS bias": 0.512,
+      "T-RIS switching": 0.044928,
+      "Controller, DDS, clock": 0.15
+    },
+    "ris_total": 1.718928,
+    "ris_volt_total": 1.206928,
+    "ris_pess_total": 2.506,
+    "aesa2": 1.532,
+    "aesa5": 2.3,
+    "aesa15": 4.859999999999999,
+    "be_pin_mW": 2.7301875,
+    "be_volt_mW": 0.7301875,
+    "be_pess_mW": 5.804687499999999,
+    "common": 0.63
+  },
+  "gate7": {
+    "SPI baseline reproduces the submitted 13.0 kHz": true,
+    "submitted power figures reproduced (2.33 W, 4.71 W, 6.56 W)": true,
+    "one CPI-long FMCW chirp puts the ghosts where the coupling model predicts (< 1/4 resolution cell)": true,
+    "M-FSK 2-D resolves all three targets (within one bin in path and path rate)": true,
+    "chirp-sequence FMCW 2-D resolves all three targets equally, no ghosts": true,
+    "break-even consistent: totals equal at P_ch* (< 1e-9 W)": true
+  }
+}

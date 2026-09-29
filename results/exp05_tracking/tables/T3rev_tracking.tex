@@ -1,0 +1,29 @@
+\begin{table}[!t]
+\centering
+\caption{Tracking Scenario and Performance (Straight Line)}
+\label{tab:tracking}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}lcc@{}}
+\hline\hline
+Parameter & Symbol & Value \\
+\hline
+Initial range / angle & $R_0$, $\theta_0$ & 10 m, 60$^\circ$ \\
+Target speed / heading & $|\bm v|$, $\psi_v$ & 2.0 m/s, 45$^\circ$ \\
+Final range / angle (frame 50) & $R_{50}$, $\theta_{50}$ & 11.65 m, 57.83$^\circ$ \\
+CPIs / duration & $N_{\rm fr}$, $T_{\rm tot}$ & 50, 860.2 ms \\
+Rx bistatic angle & $\beta$ & 60$^\circ$ \\
+\hline
+\end{tabular}\\[2pt]
+\begin{tabular}{@{}lccc@{}}
+Metric & Per-CPI fix & $\alpha$-smoother & IMM \\
+\hline
+Position RMSE & 2.76 cm & 2.56 cm & 0.97 cm \\
+95th-pct position error & 5.09 cm & 4.05 cm & 1.87 cm \\
+Velocity RMSE & -- & -- & 5.26 cm/s \\
+Pointing error (rms) & 0.134$^\circ$ & 0.154$^\circ$ & 0.051$^\circ$ \\
+Mean illumination loss & 0.001 dB & 0.002 dB & 0.000 dB \\
+\hline\hline
+\multicolumn{4}{@{}p{0.97\columnwidth}@{}}{\scriptsize 200 Monte Carlo trials; $\mathrm{SNR}_1=-14.5$\,dB at the start; measurement noise at the corrected bounds of the frame SNR, including the illumination gain of the beam commanded one CPI earlier.}
+\end{tabular}
+\end{table}

@@ -1,0 +1,48 @@
+==========================================================================
+ Receiver architecture and tone plan
+==========================================================================
+
+[1] Image-rejection requirement: Doppler-mirror ghost below the noise of
+    one range-Doppler cell (the leakage shares the target delay, not its Doppler)
+    SNR1 = -14.5 dB: SNR_CPI + 10log10(M) = 15.6 + 10.8 = 26.4 dB
+
+[2] Time-domain symbol-correlator validation (LO at f_c, complex baseband)
+    DELTA_F * T_sym = 35.000 cycles -> tones/image/carrier orthogonal: YES
+    simulated SIR vs analytic IRR: max deviation 0.0000 dB (25 points; ideal-balance point excluded, both at float floor)
+    carrier + direct-path leakage into the desired bin: -309 dB (numerical floor)
+    IRR at typical 0.2 dB / 1.0 deg imbalance: 36.8 dB -> margin +10.4 dB over requirement
+    range-Doppler check: target at f_D = -228.9 Hz, ghost at +228.9 Hz,
+      ghost level -36.8 dB re. target (analytic -IRR = -36.8 dB), range-peak shift 0 bins
+    grid points meeting requirement: 19/25
+
+[3] Tone-plan options
+    f_off  tones(MHz)   guard(MHz, %)     tau_req(ns)  squint(deg,%HPBW)  dR(m)  CRB_L(cm)
+       0    25-300      50 (0.18%)      0.270        1.04 (8.2%)        1.00   1.872
+      75   100-375     200 (0.71%)      0.216        1.29 (10.1%)        1.00   1.872
+     150   175-450     350 (1.25%)      0.180        1.53 (12.1%)        1.00   1.872
+
+[4] Option: coherent use of the co-steered image (double-sideband)
+    path CRB  SSB (submitted)            : 1.872 cm
+    path CRB  DSB, independent phases    : 1.324 cm  (x1.41, +3 dB, no calibration)
+    path CRB  DSB, calibrated phase      : 0.621 cm  (x3.02)
+    ML Monte Carlo (3000 trials): DSB-indep 1.325 cm, DSB-calibrated 0.630 cm
+    DSB total-path resolution: 0.50 m (vs 1.00 m SSB)
+
+[5] Writing figures and tables
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\paper\figures\F3rev_baseband_spectrum.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\paper\figures\FC_sideband_separation.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\results\exp01_receiver_sideband\figures\FC_opt_dsb_profile.pdf
+    D:\SEM 2\MFSK\revised 28092026\ris-mfsk-sensing\results\exp01_receiver_sideband\tables\TC_tone_plan_options.tex
+
+[checks] Validation
+    [PASS] path resolution identical across tone plans
+    [PASS] path CRB identical across tone plans
+    [PASS] T_sb(f) flat across plans (spread 0.008 dB < 0.1 dB)
+    [PASS] worst-tone squint < HPBW/2 for every plan
+    [PASS] typical-imbalance IRR meets requirement
+    [PASS] time-domain SIR matches analytic IRR (< 0.05 dB)
+    [PASS] I/Q leakage: ghost only at mirror Doppler (-IRR), no range shift
+
+    Decision for the gate (see PHASE1_2_GATE_REPORT.md):
+    D1  tone plan: keep f_off = 0 unless the T-RIS element can meet tau_sw <= 0.18 ns (f_off = 150 MHz)
+    time 10.2 s

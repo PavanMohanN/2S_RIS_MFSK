@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\centering
+\caption{Attribution of the submitted RMSE/CRB gap (response to R1.1)}
+\footnotesize
+\setlength{\tabcolsep}{1.5pt}
+\begin{tabular}{@{}clcccccc@{}}
+\hline\hline
+ & Change & RMSE & Bias & Std & Out. & Bound & Ratio \\
+ &  & (cm) & (cm) & (cm) & (\%) & (cm) &  \\
+\hline
+L0 & As submitted & 7.31 & +0.13 & 7.30 & 0.0 & 1.25 & 5.84 \\
+L1 & + Eq.~(37) bound, $-14.5$\,dB & 8.08 & +0.31 & 8.08 & 0.0 & 1.87 & 4.32 \\
+L2 & + physical signal model & 9.51 & +0.27 & 9.51 & 0.1 & 1.87 & 5.08 \\
+L3 & + full CPI ($N_{\mathrm{sw}}$=1024) & 4.96 & +0.36 & 4.95 & 0.0 & 1.87 & 2.65 \\
+L4 & + coherent 2-D processing & 4.09 & -0.10 & 4.09 & 0.0 & 1.87 & 2.19 \\
+L5 & + peak interpolation & 1.84 & 0.00 & 1.84 & 0.0 & 1.87 & 0.99 \\
+L6 & + ML refinement & 1.84 & 0.00 & 1.84 & 0.0 & 1.87 & 0.98 \\
+\hline\hline
+\end{tabular}
+\end{table}
