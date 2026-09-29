@@ -53,10 +53,8 @@ it to reproduce the paper exactly.
 │   ├── figdata/            exact inputs of every figure (.json + .npz)
 │   └── exp0N_*/            per-experiment data, LaTeX tables, extra figures
 └── paper/
-    ├── RIS_MFSK_TVT.tex                 manuscript
     ├── RIS_MFSK_TVT_supplementary.tex   supplementary material
-    ├── IEEEtran.cls
-    └── figures/            the figures, named exactly as in \includegraphics
+    └── figures/            the figures
 ```
 
 ---
