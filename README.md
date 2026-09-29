@@ -139,9 +139,7 @@ python experiments/exp02_estimation_crb.py --beta 90    # another bistatic angle
   `results/exp0N_*/data/exp0N_summary.txt` and its results to
   `exp0N_results.json`.
 
-`Created in May 2024`
-
-`File: complete_model.py`
+`Created in Aug 2026`
 
 `@author: Pavan Mohan Neelamraju`
 
