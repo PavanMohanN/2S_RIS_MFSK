@@ -139,25 +139,3 @@ python experiments/exp02_estimation_crb.py --beta 90    # another bistatic angle
   `results/exp0N_*/data/exp0N_summary.txt` and its results to
   `exp0N_results.json`.
 
-## Compiling the paper
-
-```bash
-python run_all.py --figures-only --pdf
-```
-
-or compile `paper/RIS_MFSK_TVT.tex` (three passes), then
-`paper/RIS_MFSK_TVT_supplementary.tex` (two passes; it takes its
-cross-references from the main paper's `.aux` file).
-
-## Citation
-
-```bibtex
-@article{lota2026ris_mfsk,
-  author  = {Lota, Jaswinder and Neelamraju, Pavan Mohan and Whittow, William and
-             Demosthenous, Andreas and Bansal, Aakash},
-  title   = {A Two-Stage Reconfigurable Intelligent Surface Architecture for Decoupled M-FSK Modulation and Beamforming in 28-GHz Bistatic Sensing},
-  journal = {IEEE Transactions on Vehicular Technology},
-  note    = {submitted},
-  year    = {2026}
-}
-```
